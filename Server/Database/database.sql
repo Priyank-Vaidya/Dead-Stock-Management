@@ -42,6 +42,18 @@ CREATE TABLE warehousestock(
 
 );
 
+-- The Dispatch table here is used to reference to the specific stock_id and reflect all the infotmation related to it
+-- Thereby generating the Dispatch receipt which will be saved inside the Dispatch item list
+-- One-Many Relationship;
+
 CREATE TABLE dispatched(
-    dispatch_id int references stock(stock_name)
+    id SERIAL PRIMARY KEY NOT NULL,
+    user_id INT NOT NULL,
+    dispatch_id INT NOT NULL,
+    isbn INT NOT NULL
+    FOREIGN KEY (user_id) int references warehouse(user_id) NO DELETE CASCADE NO UPDATE CASCADE,
+    FOREIGN KEY (dispatch_id) int references stock(stock_name) NO DELETE CASCADE NO UPDATE CASCADE,
+    no_of_units int NOT NULL,
+    FOREIGN KEY (isbn) int references stock(isbn) NO DELETE CASCADE NO UPDATE CASCADE,
+    date_of_exporting DATE NOT NULL
 );

@@ -8,6 +8,7 @@ const routers = require('../Server/Routers/Router');
 const app = express();
 
 //middleware
+//use of cors dependencies will help to jump to the next specific function
 app.use(cors());
 app.use(express.json());
 // app.use((req,res,next)=>{
