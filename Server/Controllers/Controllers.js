@@ -59,5 +59,22 @@ const UpdateStock = async(req,res)=>{
     }
     res.json({msg : "Stock Got Updated"});
 }
-module.exports = {CreateNewUser,AddStock,GetAlldata,UpdateStock};
+
+//Getting the data related to the Dispatched items inside the Dispatch section
+
+const DispatchedStock = async(req,res)=> {
+    try {
+        const {id} = req.params;
+        const DispatchStock = await pool.query("SELECT * FROM dispatched WHERE user_id =($1)", [id]);
+        res.status(200).json(DispatchStock);
+    } catch (err) {
+        res.status(400).json({err: err.message});
+    }
+    res.json({msg: "All of the Dispatched stock shown"});
+}
+
+
+
+
+module.exports = {CreateNewUser,AddStock,GetAlldata,UpdateStock, DispatchedStock};
 
