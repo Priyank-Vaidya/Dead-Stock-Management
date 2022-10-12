@@ -1,0 +1,44 @@
+.sidenav{
+    height: 100%;
+    width: 325px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    overflow-x: hidden;
+    background-color: #335a95;
+}
+.logo{
+    text-align: center;
+    padding: 1.8em;
+    font-weight: 900;
+    font-size: 30px;
+}
+#logo {
+    color: #fff;
+}
+.links div{
+    padding: 5%;
+    text-align: center;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 18px;
+    color: rgb(194, 194, 194);
+}
+
+.links a{
+    color: white;
+    padding: 1.1em;
+    text-decoration: none;
+}
+.more-links{
+    text-align: center;
+    font-weight: 700;
+    font-size: 18px;
+    color: rgb(194, 194, 194);
+    padding-top: 4em;
+    text-decoration: none;
+}
+.more-links div{
+    padding: 5%;
+}
