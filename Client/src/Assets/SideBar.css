@@ -6,7 +6,9 @@
     left: 0;
     z-index: 1;
     overflow-x: hidden;
-    background-color: #335a95;
+    background-color: #1F2D42;
+    /* background-color: black; */
+    
 }
 .logo{
     text-align: center;
@@ -15,7 +17,7 @@
     font-size: 30px;
 }
 #logo {
-    color: #fff;
+    color: #f1f1f1;
 }
 .links div{
     padding: 5%;
@@ -25,20 +27,38 @@
     font-size: 18px;
     color: rgb(194, 194, 194);
 }
-
+.links div:hover{
+    background-color: #274572;
+    /* background-color: rgb(97, 95, 95); */
+}
 .links a{
-    color: white;
+
+    /* border-bottom: 1px solid white; */
+    color: rgb(226, 224, 224);
     padding: 1.1em;
     text-decoration: none;
 }
+/* .links div{
+    border-radius: 5px;
+    border-bottom: 1px solid gray;
+
+} */
+/* .links b{
+    padding-left: 15px;
+} */
 .more-links{
     text-align: center;
     font-weight: 700;
     font-size: 18px;
-    color: rgb(194, 194, 194);
-    padding-top: 4em;
-    text-decoration: none;
+    padding-top: 6em;
 }
 .more-links div{
-    padding: 5%;
+    padding: 5%;  
+}
+.more-links a{
+    color: #fff;
+    text-decoration: none;
+}
+.more-links div:hover{
+    background-color: #335a95;
 }

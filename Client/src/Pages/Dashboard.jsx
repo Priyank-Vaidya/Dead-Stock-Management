@@ -42,7 +42,7 @@ const Dashboard = () => {
                             </b>
                             
                         </div>
-                        <div>
+                        <div id="Add-product">
                             <Link>
                                 <button onClick={addProduct}>Add Product</button>
                             </Link>
@@ -51,44 +51,48 @@ const Dashboard = () => {
                 </div>
                 <hr />
                 <div className="lower-half">
-                    <div className="sort">
-                        <label for="products">Sort By: </label>
+                    <div>
+                        <div className="sort">
+                            <label htmlFor="Products">Sort By: </label>
                             <select id="sort-options">
                                 <option value="Expiry date">Expiry Date</option>
                                 <option value="name">Name</option>
                                 <option value="date added">date added</option>
                             </select>
+                        </div>
+                        <div className="toggle-button">
+                            check text
+                        </div>
                     </div>    
                     <div className="list">
-                        <table className="Products">
+                        <table className="Products" key="hello">
+                            <tbody>
                             <tr>
-                                <th>id</th>
-                                <th>Product Name</th>
+                                <th>No.</th>
+                                <th>Product Name/ID</th>
                                 <th>Location</th>
                                 <th>Expiry</th>
                                 <th>Quantity</th>
                                 <th>Status </th>
                             </tr>
+                            </tbody>
                             <tbody>
-                                {/* <tr>
-                                    <td>IC Chips</td>
-                                    <td>Warehouse 3, Batch 8</td>
-                                    <td><span className="dot"></span>450 Days</td>
-                                    <td>760 days</td>
-                                    <td>In-stock</td>
-                                </tr> */}
                                 {Products.map((Products) => (
+                                    
                                     <tr>
-                                        {/* <td><Link>{Products.Name}</Link></td> */}
-                                        <td>{Products.id}</td>
-                                        <td>{Products.Name} </td>
+                                        <td>
+                                            {Products.id}
+                                        </td>
+                                        <td>
+                                            <Link>{Products.Name}</Link> : { Products["ID"]}
+                                        </td>
                                         <td>{Products.Location}</td>
                                         <td>
                                             <span className="dot"></span>
                                             {Products.Expiry}
                                         </td>
                                         <td>{Products.Quantity}</td>
-                                        {/* <td>{Products.Status}</td> */}
+                                    
                                         <td>
                                             <select id="staus-options"> 
                                                 <option value="In-stock">In-stock</option>
@@ -97,9 +101,9 @@ const Dashboard = () => {
                                             </select>
                                         </td>
                                     </tr>
+                                    
                                 ))}
                             </tbody>
-                            
                         </table>
                     </div>
                 </div>

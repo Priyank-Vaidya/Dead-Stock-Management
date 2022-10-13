@@ -9,10 +9,10 @@ function App() {
   return (
    <BrowserRouter>
     <Routes>
-      <Route path='/' element={ <Dashboard /> } />
-      <Route path='/History' element = { <Histroy />} />
-      <Route path='/Messages' element = {<Messages />}/>
-      <Route path='/Charts' element = { <Charts /> }/>
+      <Route path='/' element={ <Dashboard key = "dashboard" /> } />
+      <Route path='/History' element = { <Histroy key="history" />} />
+      <Route path='/Messages' element = {<Messages key="message" />}/>
+      <Route path='/Charts' element = { <Charts key="charts" /> }/>
      </Routes>
    </BrowserRouter>
   );

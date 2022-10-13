@@ -51,6 +51,9 @@
 .search-container div input[type=text]{
     float: left;
 }
+/* .search-container div input[type=submit]:hover{
+    background-color: #5B5B5B;
+} */
 #add-button{
     float: right;
     padding: 5px;
@@ -76,17 +79,24 @@ button{
     color: #fff;
     background-color: #000;
 }
+#Add-product button:hover{
+    background-color: #5B5B5B;
+    border-color: #5B5B5B;
+}
+.lower-half{
+    padding: 1.3em;
+}
 .list{
     border: 2px solid rgb(228, 228, 228);
     display: block;
     padding: 1.3em;
 }
-.sort{
-    padding-bottom: 1em;
+/* .sort{
+    float: left;
 }
-.lower-half{
-    padding: 1.3em;
-}
+.toggle-button{ 
+    float: right;
+} */
 .Products{
     width: 100%;
     /* border: 0.5px solid rgb(210, 210, 210); */
@@ -104,6 +114,10 @@ button{
 }
 .Products td:hover{
     background-color: #adadad;
+}
+.Products a{
+    text-decoration: none;
+    color: grey;
 }
 .dot{
     height: 12px;

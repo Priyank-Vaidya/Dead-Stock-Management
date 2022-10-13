@@ -2,6 +2,7 @@
     {
         "id": 1,
         "Name": "IC Chips",
+        "ID" : "45TBC89",
         "Location": "Warehouse 3, Batch 8",
         "":" ",
         "Expiry": " 450 Days",
@@ -11,6 +12,7 @@
     {
         "id": 2,
         "Name": "8086 Microprocessor",
+        "ID" : "25IOC89",
         "Location": "Warehouse 5, Batch 2",
         "Expiry": " 1250 Days",
         "Quantity": "569",
@@ -19,6 +21,7 @@
     {
         "id": 3,
         "Name": "Chipset",
+        "ID" : "19YTC36",
         "Location": "Warehouse 8, Batch 1",
         "Expiry": " 50 Days",
         "Quantity": "65",
@@ -27,6 +30,7 @@
     {
         "id": 4,
         "Name": "LED lights",
+        "ID" : "71RCD89",
         "Location": "Warehouse 1, Batch 3",
         "Expiry": " 568 Days",
         "Quantity": "125",
@@ -35,6 +39,7 @@
     {
         "id": 5,
         "Name": "Poppins",
+        "ID" : "27YCN54",
         "Location": "Warehouse 7, Batch 5",
         "Expiry": " 78 Days",
         "Quantity": "25",

@@ -9,18 +9,16 @@ const Messages = () =>{
 
     return(
         <>
-        <SideBar />
+        <SideBar key ="message"/>
         <div className="Messages">
             <div className="info-text">
                 <div>Some items were expiring soon!</div>
-                {/* <p>Check out here...</p> */}
                 <hr />
             </div>
         <div>
         <section className="total-products">
             <p>Total items were </p>
             <p> 5 </p>    
-            {/* // here we can write function which takes data, i've to make another json file for this samll dummy data. So i just let it here statci  */}
         </section>    
         <hr />
         {Details.map((Details) => (
@@ -48,26 +46,7 @@ const Messages = () =>{
             
             
         </div>
-        {/* <div>
-            <div className="Expiry-details">
-                <ol>
-                    <li>Doritos</li>
-                    <ul>
-                        <li>Product ID : 76TRE98</li>
-                        <li>Expiry : 15 Days</li>
-                        <li>Status : In-Stock</li>
-                        <li>Quantity : 10</li>
-                        <li>Location : Warehouse 2, Batch 3</li>
-                    </ul>
-                    
-                </ol>
-            </div>
-            <div className="Expiry-period">
-                <h1>Expiring in</h1>
-                <h2>15 Days</h2>
-                try to sort this product !
-            </div>
-        </div> */}
+    
         </div>
         </>
     )

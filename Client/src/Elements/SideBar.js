@@ -11,11 +11,14 @@ const SideBar = () => {
                     <section className="logo"><span><Link to = '/' id="logo">Manage It</Link></span></section>
                     <section className="links">
                         <div>
-                            {/* <Link to = '/'>Dashboard</Link> */}
                             <Link to = '/'>Dashoboard</Link>
                         </div>
                         <div>
+                            
                             <Link to = '/Messages'>Messages</Link>
+                            <b>
+                                5
+                            </b>
                         </div>
                         <div>
                             <Link to = '/Charts'>Charts</Link>
@@ -26,10 +29,10 @@ const SideBar = () => {
                     </section>
                     <section className="more-links">
                         <div>
-                            <Link>Settings</Link>
+                            <Link to = '/Settings'>Settings</Link>
                         </div>
                         <div>
-                            <Link>How to use?</Link>
+                            <Link to = '/Explore'>How to use?</Link>
                         </div>
                     </section>
                 </div>
