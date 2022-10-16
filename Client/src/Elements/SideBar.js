@@ -2,8 +2,9 @@ import React from "react";
 import '../Assets/SideBar.css';
 import { Link } from "react-router-dom";
 import Histroy from "../Pages/History";
-
+import data from "../Assets/mock-data.json"
 const SideBar = () => {
+     const arrJSON = data.length ;
     return(
         <>
             <div className="sidenav">
@@ -11,14 +12,13 @@ const SideBar = () => {
                     <section className="logo"><span><Link to = '/' id="logo">Manage It</Link></span></section>
                     <section className="links">
                         <div>
-                            <Link to = '/'>Dashoboard</Link>
+                            <Link to = '/'>Dashboard</Link>
                         </div>
                         <div>
                             
                             <Link to = '/Messages'>Messages</Link>
-                            <b>
-                                5
-                            </b>
+                             {arrJSON}
+                            {/* <b></b> */}
                         </div>
                         <div>
                             <Link to = '/Charts'>Charts</Link>
