@@ -1,40 +1,68 @@
 const async = require('hbs/lib/async');
-const pool = require('../Database/db');
-const dbsSchema = require('../Database/database.sql');
+// const pool = require('../Database/db');
+// const dbsSchema = require('../Database/database.sql');
+
+const express = require('express');
+const mongoose = require('mongoose');
+
+const Workouts = require('../Models/Models');
+const routers = require('../Routers/Router');
+const {models} = require("mongoose");
+
+//Updaating the User table with FIrebase database
+//Delete the table database
 
 const CreateNewUser = async(req,res)=> {
     try {
-        const {inputdata} = req.body;
-        const NewUser = await pool.query("INSERT INTO warehouse (email) VALUES ($1)",[inputdata]);
-        res.status(200).json(NewUser);
+        // const {us } = req.body;
+        const collections = Workouts.insertMany(req.body, (err, results)=> res.json(results));
+        // console.log(NewUser)
+        // res.status(200).json(NewUser);
     } catch(err) {
         res.status(400).json({err : err.message});
     }
-    res.json({msg: "New User Created"});
+
+    // res.json({msg: "New User Created"});
 }
 
 //Adding the New Stock in the warehousestock table
 //Doubt
+const GetAllData = async(req,res)=>{
+    try{
+        const {user_id}=req.params;
+        const collections = Workouts.find({user_id : user_id});
+        res.status(200).json(collections);
+    }
+    catch(e){
+
+    }
+}
 
 const AddStock = async(req,res)=>{
-
     try{
-        const {id} = req.params;
-        const {stock_name, date_of_importing, no_of_units, no_of_items_in_one_unit, date_of_expiration, isbn} = req.body;
-        const NewStock = await pool.query("INSERT INTO warehousestock (stock_id, stock_name, date_of_importing, no_of_units, no_of_items_in_one_unit, date_of_expiration, isbn) VALUES($2,$3,$4,$5,$6,$7,$8) WHERE user_id RETURNING * = ($1)", [id,stock_id, stock_name,date_of_importing,no_of_units,no_of_items_in_one_unit,date_of_expiration,isbn ]);
-        res.status(200).json(NewStock);
+
+        // const NewStock = Workouts.create(title, email,{stock: [{stock_id}, {date_of_importing}, {no_of_units}, {no_of_items_in_one_unit}, {date_of_expiration}, {isbn}]});
+        const{user_id} = req.params;
+           const NewStock = Workouts.findById(user_id).insertMany(req.body);
+        try{
+            // await NewStock.save();
+            res.status(200).json(NewStock);
+        }
+        catch(e){
+
+        }
     }
     catch (err) {
         res.status(400).json({err : err.message});
     }
 }
-
-//Get all the data related to Stock of the particular User_id
-
+//
+// //Get all the data related to Stock of the particular User_id
+//
 const GetAlldata = async(req,res)=>{
     try {
         const {id} = req.params;
-        const Stocks = await pool.query("SELECT * FROM warehousestock WHERE user_id = ($1)",[id]);
+        const stocks = Workouts.findById({user_id});
         res.status(200).json(Stocks);
     }
     catch (err){
@@ -43,38 +71,34 @@ const GetAlldata = async(req,res)=>{
     res.json({msg : "All the Stock is shown"});
 }
 
-//To Update the Query During the Dispatch Timings
-//Check The Update Query
-//Maybe We can make another one-many relation table with stock and disptch table
-
-const UpdateStock = async(req,res)=>{
-    try {
-        const {id} = req.params;
-        const {stock_id, no_of_units} = req.body;
-        const UpdatedStock = await pool.query("UPDATE INTO warehousestock WHERE (user_id = $1 && stock_id = $2) RETURNING * ", [id, stock_id, no_of_units]);
-        res.status(200).json(UpdatedStock);
-    }
-    catch (err){
-        res.status(400).json({err : err.message});
-    }
-    res.json({msg : "Stock Got Updated"});
-}
-
-//Getting the data related to the Dispatched items inside the Dispatch section
-
-const DispatchedStock = async(req,res)=> {
-    try {
-        const {id} = req.params;
-        const DispatchStock = await pool.query("SELECT * FROM dispatched WHERE user_id =($1)", [id]);
-        res.status(200).json(DispatchStock);
-    } catch (err) {
-        res.status(400).json({err: err.message});
-    }
-    res.json({msg: "All of the Dispatched stock shown"});
-}
-
-
-
-
-module.exports = {CreateNewUser,AddStock,GetAlldata,UpdateStock, DispatchedStock};
+// //To Update the Query During the Dispatch Timings
+// //Check The Update Query
+// //Maybe We can make another one-many relation table with stock and disptch table
+//
+// const UpdateStock = async(req,res)=>{
+//     try {
+//         const {id} = req.params;
+//         const {stock_id, no_of_units} = req.body;
+//         const UpdatedStock = await pool.query("UPDATE INTO warehousestock WHERE (user_id = $1 && stock_id = $2) RETURNING * ", [id, stock_id, no_of_units]);
+//         res.status(200).json(UpdatedStock);
+//     }
+//     catch (err){
+//         res.status(400).json({err : err.message});
+//     }
+//     res.json({msg : "Stock Got Updated"});
+// }
+//
+// //Getting the data related to the Dispatched items inside the Dispatch section
+//
+// const DispatchedStock = async(req,res)=> {
+//     try {
+//         const {id} = req.params;
+//         const DispatchStock = await pool.query("SELECT * FROM dispatched WHERE user_id =($1)", [id]);
+//         res.status(200).json(DispatchStock);
+//     } catch (err) {
+//         res.status(400).json({err: err.message});
+//     }
+//     res.json({msg: "All of t\he Dispatched stock shown"});
+// }
+module.exports = {CreateNewUser,GetAllData, AddStock};
 
