@@ -131,7 +131,18 @@ const Dashboard = () => {
 
     // }
     const [searchTerm,setSearchTerm] = useState("");
-
+    const products_disp = document.querySelector(".listt")
+    const [switchToggled, setSwitchToggled] = useState(false)
+    const ToggleSwitch = () => {
+    switchToggled ? setSwitchToggled(false) : setSwitchToggled(true)
+    if (switchToggled === true) {
+      products_disp.classList.add("active")
+      
+    } else {
+      products_disp.classList.remove("active")
+       
+    }
+  }
     const Search = () => {
         console.log('search button clicked')
     }
@@ -162,19 +173,51 @@ const Dashboard = () => {
                                     setSearchTerm(event.target.value);
                                     // console.log(event.target.value)
                                 }}/>
+                                
                                 {data.filter((val)=>{
                                     if(searchTerm===""){
                                         return val
                                     }else if(val.Name.toLowerCase().includes(searchTerm.toLowerCase())){return val}
                                 }).map((val,key)=>{
                                     return(<div className="user" key={key}>
-                                        <p>{val.Name}</p>
+                                        <br></br>
+                                        {/* <p>{val.Name}</p> */}
+                                        <div className="listt">
+                        <table className="Products_display"  key="hello">
+                            <tbody>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Product Name/ID</th>
+                                    <th>Location</th>
+                                    <th>Expiry</th>
+                                    <th>Quantity</th>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                    <tr>
+                                        <td>
+                                            {val.id}
+                                        </td>
+                                        <td>
+                                            <Link>{val.Name}</Link> : {val["ID"]}
+                                        </td>
+                                        <td>{val.Location}</td>
+                                        <td>
+                                            <span className="dot"></span>
+                                            {val.Expiry}
+                                        </td>
+                                        <td>{val.Quantity}</td>
+
+                                    </tr>
+                            </tbody>
+                        </table>
+                    </div>
                                     </div>)
                                 }
                                 ) }
                             </b>
                             <b>
-                                <button type="submit" onClick={Search}><FaSearch /></button>
+                                <button type="submit" onChange={ToggleSwitch} onClick={Search}><FaSearch /></button>
                             </b>
 
                         </div>
