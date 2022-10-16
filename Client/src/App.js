@@ -4,7 +4,7 @@ import Dashboard from './Pages/Dashboard';
 import Histroy from './Pages/History';
 import Messages from './Pages/Messages';
 import Charts from './Pages/Charts';
-
+import React from 'react';
 function App() {
   return (
    <BrowserRouter>
