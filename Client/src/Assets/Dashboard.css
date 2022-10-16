@@ -127,6 +127,27 @@ button{
     text-decoration: none;
     color: grey;
 }
+.Products_display{
+    display: hidden;
+}
+.Products_display.active{
+    display: block;
+}
+.Products_display th{
+    padding: 1em;
+    /* border: 0.5px solid rgb(210, 210, 210); */
+    text-align: left;
+    background-color: #e0e0e0;
+    color: #5B5B5B;
+
+}
+.Products_display td{
+    padding: 1em;
+    background-color: rgb(241, 241, 241);
+}
+.Products_display td:hover{
+    background-color: #adadad;
+}
 .dot{
     height: 12px;
     width: 12px;
