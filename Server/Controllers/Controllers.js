@@ -4,25 +4,24 @@ const async = require('hbs/lib/async');
 
 const express = require('express');
 const mongoose = require('mongoose');
-
-const Workouts = require('../Models/Models');
+const models = require('../Models/Models');
 const routers = require('../Routers/Router');
-const {models} = require("mongoose");
+const Models = require("../Models/Models");
 
 //Updaating the User table with FIrebase database
 //Delete the table database
 
 const CreateNewUser = async(req,res)=> {
-    try {
-        // const {us } = req.body;
-        const collections = Workouts.insertMany(req.body, (err, results)=> res.json(results));
-        // console.log(NewUser)
-        // res.status(200).json(NewUser);
-    } catch(err) {
-        res.status(400).json({err : err.message});
-    }
-
-    // res.json({msg: "New User Created"});
+    // try {
+    //     // const {us } = req.body;
+    //     const collections = Workouts.insertMany(req.body, (err, results)=> res.json(results));
+    //     // console.log(NewUser)
+    //     // res.status(200).json(NewUser);
+    // } catch(err) {
+    //     res.status(400).json({err : err.message});
+    // }
+    //
+    // // res.json({msg: "New User Created"});
 }
 
 //Adding the New Stock in the warehousestock table
@@ -30,7 +29,7 @@ const CreateNewUser = async(req,res)=> {
 const GetAllData = async(req,res)=>{
     try{
         const {user_id}=req.params;
-        const collections = Workouts.find({user_id : user_id});
+        const collections = Models.findbyId({user_id : user_id});
         res.status(200).json(collections);
     }
     catch(e){
@@ -43,13 +42,14 @@ const AddStock = async(req,res)=>{
 
         // const NewStock = Workouts.create(title, email,{stock: [{stock_id}, {date_of_importing}, {no_of_units}, {no_of_items_in_one_unit}, {date_of_expiration}, {isbn}]});
         const{user_id} = req.params;
-           const NewStock = Workouts.findById(user_id).insertMany(req.body);
+        const importing = (Models.findById({user_id})).date_of_importing;
+           const NewStock = Models.find({id:_id}).insertMany(req.body);
         try{
             // await NewStock.save();
             res.status(200).json(NewStock);
         }
         catch(e){
-
+            res.status(400).json({e : e.message});
         }
     }
     catch (err) {
@@ -62,7 +62,7 @@ const AddStock = async(req,res)=>{
 const GetAlldata = async(req,res)=>{
     try {
         const {id} = req.params;
-        const stocks = Workouts.findById({user_id});
+        const stocks = Models.findById({user_id});
         res.status(200).json(Stocks);
     }
     catch (err){

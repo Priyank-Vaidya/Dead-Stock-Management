@@ -37,4 +37,4 @@ const workoutSchema = new Schema({
 //         expired: [Boolean],
 // }, {timestamps: true});
 
-module.exports = mongoose.model('Workouts',workoutSchema);
+module.exports = mongoose.model('Models', workoutSchema);
