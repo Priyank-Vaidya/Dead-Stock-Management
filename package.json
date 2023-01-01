@@ -1,5 +1,15 @@
 {
   "dependencies": {
+<<<<<<< HEAD
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.1",
+    "hbs": "^4.2.0",
+    "mongoose": "^6.6.5",
+    "nodemon": "^2.0.20",
+    "pg": "^8.8.0"
+=======
     "fs": "^0.0.1-security"
+>>>>>>> 50c421f9628798dfc469e11af76dfd52df2ed765
   }
 }
